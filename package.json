@@ -1,0 +1,17 @@
+{
+  "name": "kubernetes-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "docker build . -t odb/kubernetes-demo",
+    "docker:start": "docker run -d -p 3000:3000 odb/kubernetes-demo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
