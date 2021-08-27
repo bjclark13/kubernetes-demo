@@ -6,7 +6,7 @@ let counter = 0;
 
 app.get("/", (req, res) => {
   counter++;
-  if (counter > 10) {
+  if (counter > 100) {
     server.close();
     res.send(`dead.`);
   }

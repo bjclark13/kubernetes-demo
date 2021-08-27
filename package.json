@@ -6,8 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "docker build . -t odb/kubernetes-demo",
-    "docker:start": "docker run -d -p 3000:3000 odb/kubernetes-demo"
+    "build": "docker build . -t bjclark/kubernetes-demo",
+    "docker:start": "docker run -d -p 3000:3000 bjclark/kubernetes-demo",
+    "docker:push": "docker push bjclark/kubernetes-demo",
+    "kube:deployment": "kubectl create deployment odb-kube --image=bjclark/kubernetes-demo",
+    "kube:service": "kubectl expose deployment odb-kube --type=LoadBalancer --port 3000",
+    "kube:scale": "kubectl scale --replicas=4 deployment/odb-kube",
+    "kube:v2": "kubectl set image deployments/odb-kube kubernetes-demo=bjclark/kubernetes-demo:v2"
   },
   "author": "",
   "license": "ISC",
